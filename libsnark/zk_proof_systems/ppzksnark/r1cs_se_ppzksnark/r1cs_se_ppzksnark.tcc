@@ -5,6 +5,8 @@ Implementation of interfaces for a SEppzkSNARK for R1CS.
 
 See r1cs_se_ppzksnark.hpp .
 
+
+
 *****************************************************************************
 * @author     This file is part of libsnark, developed by SCIPR Lab
 *             and contributors (see AUTHORS).
