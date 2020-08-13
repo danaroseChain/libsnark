@@ -480,10 +480,8 @@ r1cs_se_ppzksnark_proof<ppT> r1cs_se_ppzksnark_prover(const r1cs_se_ppzksnark_pr
 #endif
 
     const libff::Fr<ppT> r = libff::Fr<ppT>::random_element();
-
-    libff::enter_block("Compute the proof");
-    libff::enter_block("Dana is the queen");
     auto start = high_resolution_clock::now(); 
+    libff::enter_block("Compute the proof");
 
     libff::enter_block("Compute answer to A-query", false);
     /**
@@ -503,10 +501,12 @@ r1cs_se_ppzksnark_proof<ppT> r1cs_se_ppzksnark_prover(const r1cs_se_ppzksnark_pr
             sap_wit.coefficients_for_ACs.begin(),
             sap_wit.coefficients_for_ACs.end(),
             chunks);
-
+    libff::leave_block("Compute the proof");
     libff::leave_block("Compute answer to A-query", false);
     auto end = high_resolution_clock::now(); 
     auto duration = duration_cast<microseconds>(stop - start); 
+
+    libff::enter_block("Compute the proof");
 
     libff::enter_block("Compute answer to B-query", false);
     /**
