@@ -501,8 +501,9 @@ r1cs_se_ppzksnark_proof<ppT> r1cs_se_ppzksnark_prover(const r1cs_se_ppzksnark_pr
             sap_wit.coefficients_for_ACs.begin(),
             sap_wit.coefficients_for_ACs.end(),
             chunks);
-    libff::leave_block("Compute the proof");
     libff::leave_block("Compute answer to A-query", false);
+    libff::leave_block("Compute the proof");
+
     auto end = high_resolution_clock::now(); 
     auto duration = duration_cast<microseconds>(stop - start); 
 
