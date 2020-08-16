@@ -480,9 +480,7 @@ r1cs_se_ppzksnark_proof<ppT> r1cs_se_ppzksnark_prover(const r1cs_se_ppzksnark_pr
 #endif
 
     const libff::Fr<ppT> r = libff::Fr<ppT>::random_element();
-    auto start = high_resolution_clock::now(); 
     libff::enter_block("Compute the proof");
-
     libff::enter_block("Compute answer to A-query", false);
     /**
      * compute A = G^{gamma * (\sum_{i=0}^m input_i * A_i(t) + r * Z(t))}
@@ -502,13 +500,7 @@ r1cs_se_ppzksnark_proof<ppT> r1cs_se_ppzksnark_prover(const r1cs_se_ppzksnark_pr
             sap_wit.coefficients_for_ACs.end(),
             chunks);
     libff::leave_block("Compute answer to A-query", false);
-    libff::leave_block("Compute the proof");
-
-    auto end = high_resolution_clock::now(); 
-    auto duration = duration_cast<microseconds>(stop - start); 
-
-    libff::enter_block("Compute the proof");
-
+    
     libff::enter_block("Compute answer to B-query", false);
     /**
      * compute B exactly as A, except with H as the base
