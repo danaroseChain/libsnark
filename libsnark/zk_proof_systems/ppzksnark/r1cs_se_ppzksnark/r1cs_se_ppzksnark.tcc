@@ -482,6 +482,7 @@ r1cs_se_ppzksnark_proof<ppT> r1cs_se_ppzksnark_prover(const r1cs_se_ppzksnark_pr
     const libff::Fr<ppT> r = libff::Fr<ppT>::random_element();
     libff::enter_block("Compute the proof");
     libff::enter_block("Compute answer to A-query", false);
+    libff::cout << "Output sentence";
     /**
      * compute A = G^{gamma * (\sum_{i=0}^m input_i * A_i(t) + r * Z(t))}
      *           = \prod_{i=0}^m (G^{gamma * A_i(t)})^{input_i)
