@@ -478,7 +478,6 @@ r1cs_se_ppzksnark_proof<ppT> r1cs_se_ppzksnark_prover(const r1cs_se_ppzksnark_pr
 #endif
 
     const libff::Fr<ppT> r = libff::Fr<ppT>::random_element();
-    out << "DANA IM HERE in libsnark ";
     libff::enter_block("Compute the proof");
     
     libff::enter_block("Compute answer to A-query", false);
